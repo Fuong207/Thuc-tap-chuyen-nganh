@@ -167,6 +167,13 @@ body{
     margin: 20px 0;
 
 }
+.main .left .left-item  .after{
+    
+}
+.main .left .left-item a:checked ~ .after{
+    display: block;
+    
+}
 .main .left .left-item .after p{
     font-size: 17px;
     color: #333;

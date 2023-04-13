@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: pink;
+}
+.form{
+    background-color: #adad;
+    height: 500px;
+    width: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.form h1{
+    color: #fff;
+    text-align: center;
+    margin: 20px 0;
+}
+.form p{
+    margin: 20px ;
+}
+.form input{
+    width: 80%;
+    height: 30px;
+    margin: 20px ;
+
+}
