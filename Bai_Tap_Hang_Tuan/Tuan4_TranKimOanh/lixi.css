@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+   
+    min-height: 50vh;
+    min-width: 0vh;
+}
+audio{
+  display: none;
+}
+.section img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+    width: 252px;
+    height: 246px;
+    object-fit: cover;
+    margin: -135px -137px;
+    border-radius: 50px;
+    animation: scale 5s infinite;
+}
+@keyframes scale{
+    0% {
+        transform: scale(1);
+      }
+      30% {
+        transform: scale(.8);
+      }
+      60% {
+        transform: scale(1.2);
+      }
+      100% {
+        transform: scale(1);
+      }
+}

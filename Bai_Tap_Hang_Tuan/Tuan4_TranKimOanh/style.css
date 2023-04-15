@@ -1,0 +1,74 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    text-align: center;
+    font-family: montserrat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: url(./sach.jpg);
+}
+audio{
+    display: none;
+}
+.text{
+}
+.text p{
+    position: absolute;
+    text-align: center;
+    color: #fff;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-weight: 1000;
+    font-size: 30px;
+    animation: doimau 2s infinite ;
+}
+@keyframes doimau{
+    0% {
+        color: violet;
+    }
+    25% {
+        color: rgb(214, 16, 138);
+    }
+    50% {
+        color: red;
+    }
+    100% {
+        color: black;
+    }
+}
+main{
+    position: relative;
+    background: rgba(255, 255, 255, 0.5);
+    width: 100%;
+    padding: 50px 0;
+}
+.timer{
+    display: flex;
+}
+.box{
+    width: 25%;
+}
+h1{
+    font-size: 40px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+
+}
+h3{
+    color: #ed1857;
+    font-size: 80px;
+    margin-bottom: 20px;
+    font-family:monallesia;
+}
+p{
+    
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-family:monallesia;
+}

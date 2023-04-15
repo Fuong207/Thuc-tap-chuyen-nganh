@@ -1,0 +1,115 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+body{
+    background: #4daf54;
+    height: 100vh;
+}
+.card{
+    height: 400px;
+    width: 320px;
+    background: #272d40;
+    margin: 120px auto ;
+    border-radius: 15px;
+    color: #fff;
+    position: relative;
+}
+.icon_heart,.icon_cart{
+    font-size: 20px;
+    position: absolute;
+    left: 15px;
+    top: 20px;    
+}
+.icon_cart{
+    left: unset;
+    right: 15px;
+    
+}
+.card_img{
+    width: 90%;
+}
+.card:hover .card_img{
+    transform: translateY(-80px) rotate(-25deg);
+    transition: 0.3s;
+
+}
+.card_img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    
+}
+.card_title,.card_money{
+    text-align: center;
+    margin: 5px;
+    font-size: 20px;
+}
+.card_title{
+    color: #4daf54;
+}
+.card:hover .card_title{
+    transform: translate(-80px,-50px);
+
+}
+.card:hover .card_money{
+    transform: translate(-130px,-50px);
+}
+.card_size,.card_color,.btn_buy,.btn_add{
+    display: flex;
+    margin: 10px 20px;
+}
+.card_size span{
+    padding:0 15px;
+    background: #fff;
+    color: #000;
+    border-radius: 7px;
+    margin: 0 10px;
+}
+.card_color span{
+    margin: 5px 10px;
+    padding: 7px;
+}
+.card_color .red{
+    width: 10px;
+    height: 10px;
+    background: red;
+    border-radius: 10px;
+}
+.card_color .blue{
+    width: 10px;
+    height: 10px;
+    background: blue;
+    border-radius: 10px;
+}
+.card_color .black{
+    width: 10px;
+    height: 10px;
+    background: black;
+    border-radius: 10px;
+}
+.btn_buy,.btn_add{
+    float: left;
+}
+.btn_buy button{
+    background: #4daf54;   
+    color: #fff;
+    float: left;
+    display: inline-block;
+    font-size: 15px;
+    margin: 5px 10px;    
+    border-radius: 5px;
+}
+.btn_add button {
+    background: #4daf54;   
+    color: #fff;
+    float: left;
+    display: inline-block;
+
+    font-size: 15px;
+    margin: 10px 10px;    
+    border-radius: 5px;
+}
