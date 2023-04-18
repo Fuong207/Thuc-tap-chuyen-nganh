@@ -1,5 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { APP_ROUTER } from "./router";
+import NotFoundPage from "./feature/not-found";
+import PrivateLayout from "./layout/private";
 
 function App() {
   return (
@@ -9,9 +11,14 @@ function App() {
           <Route
             key={route.path}
             path={route.path}
-            element={<route.element />}
+            element={
+              <PrivateLayout>
+                <route.element />
+              </PrivateLayout>
+            }
           />
         ))}
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
   );
