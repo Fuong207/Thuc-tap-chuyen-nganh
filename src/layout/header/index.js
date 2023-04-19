@@ -1,15 +1,9 @@
-import {
-  Box,
-  IconButton,
-  InputAdornment,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Box, Button, IconButton, TextField, Typography } from "@mui/material";
 import BoxBody from "../../components/box-body";
 import { NAVIGATE_DATA } from "../../data/navigate";
 import { CATEGORY_DATA } from "../../data/category";
-import Icon from "../../components/icon";
 import Cart from "../../feature/cart";
+import Icon from "../../components/icon";
 
 export default function Headers() {
   return (
@@ -29,7 +23,6 @@ export default function Headers() {
                 color="white"
                 padding={1}
                 fontSize="0.8em"
-                
                 sx={{ cursor: "pointer" }}
               >
                 {value}
@@ -38,39 +31,50 @@ export default function Headers() {
           </Box>
         </BoxBody>
       </Box>
-      <Box sx={{ height: 70 }}>
+      <Box sx={{ height: 70, backgroundColor: "white" }}>
         <BoxBody>
-          <Box display="flex" height="100%" justifyContent="space-around" alignItems="center">
+          <Box
+            display="flex"
+            height="100%"
+            justifyContent="space-between"
+            alignItems="center"
+          >
             <img
               src="https://bantranh.com/wp-content/uploads/2019/02/logo-2.png"
               alt=""
-              height="51px" 
+              height="51px"
             />
-            <TextField sx={{margin: "0 32px", }}
+            <TextField
+              sx={{ margin: "0 32px" }}
               id="margin-none"
               fullWidth
               size="small"
               placeholder="Tìm kiếm sản phẩm"
-            />  
-            <Cart >
-
-            </Cart>
+            />
+            <Button variant="outlined">
+              <Icon name="search" />
+            </Button>
+            <Cart />
           </Box>
-         
         </BoxBody>
       </Box>
-      <Box sx={{ height: 50, backgroundColor: "#6c5070" }}  display="flex" height="100%" justifyContent="space-around" alignItems="center">
-             {CATEGORY_DATA.map((value) => (
-              <Typography
-                color="white"
-                padding={1}
-                fontSize="0.8em"
-                
-                sx={{ cursor: "pointer" }}
-              >
-                {value.name}
-              </Typography>
-            ))}
+      <Box
+        sx={{ height: 50, backgroundColor: "#6c5070" }}
+        display="flex"
+        height="100%"
+        justifyContent="space-around"
+        alignItems="center"
+      >
+        {CATEGORY_DATA.map((value) => (
+          <Typography
+            color="white"
+            padding={1}
+            fontSize="0.8em"
+            sx={{ cursor: "pointer" }}
+          >
+            {value.name}
+          </Typography>
+        ))}
       </Box>
     </Box>
   );

@@ -1,4 +1,5 @@
 import { Box } from "@mui/material";
+import { PropTypes } from "prop-types";
 import { ReactComponent as Search } from "../../access/icon/search.svg";
 const icons = {
   search: <Search />,
@@ -30,6 +31,16 @@ const Icon = ({ name, fill, size, sx, ...props }) => {
       {icons[name]}
     </Box>
   );
+};
+
+Icon.defaultProps = {
+  name: "",
+  size: 20,
+};
+
+Icon.propTypes = {
+  name: PropTypes.string,
+  size: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };
 
 export default Icon;
