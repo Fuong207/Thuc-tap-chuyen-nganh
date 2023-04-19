@@ -7,6 +7,7 @@ import {
 } from "@mui/material";
 import BoxBody from "../../components/box-body";
 import { NAVIGATE_DATA } from "../../data/navigate";
+import { CATEGORY_DATA } from "../../data/category";
 import Icon from "../../components/icon";
 import Cart from "../../feature/cart";
 
@@ -39,21 +40,17 @@ export default function Headers() {
       </Box>
       <Box sx={{ height: 70 }}>
         <BoxBody>
-          <Box display="flex" height="100%" alignItems="center">
+          <Box display="flex" height="100%" justifyContent="space-around" alignItems="center">
             <img
               src="https://bantranh.com/wp-content/uploads/2019/02/logo-2.png"
               alt=""
               height="51px" 
             />
-            <TextField
+            <TextField sx={{margin: "0 32px", }}
+              id="margin-none"
+              fullWidth
+              size="small"
               placeholder="Tìm kiếm sản phẩm"
-              InputProps={
-                <InputAdornment position="end">
-                  <IconButton onClick={() => {}}>
-                    <Icon name="search" />
-                  </IconButton>
-                </InputAdornment>
-              }
             />  
             <Cart >
 
@@ -62,8 +59,18 @@ export default function Headers() {
          
         </BoxBody>
       </Box>
-      <Box sx={{ height: 50, backgroundColor: "#6c5070" }}>
-
+      <Box sx={{ height: 50, backgroundColor: "#6c5070" }}  display="flex" height="100%" justifyContent="space-around" alignItems="center">
+             {CATEGORY_DATA.map((value) => (
+              <Typography
+                color="white"
+                padding={1}
+                fontSize="0.8em"
+                
+                sx={{ cursor: "pointer" }}
+              >
+                {value.name}
+              </Typography>
+            ))}
       </Box>
     </Box>
   );
