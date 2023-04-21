@@ -1,0 +1,285 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    opacity: 99%;
+}
+body{
+    margin: 0 80px;
+    font-family:sans-serif,"open sans";
+    background-color: #f8eeee;
+}
+.header{
+    height: 30px;
+    width: 100%;
+    background-color: violet;
+    
+}
+.header ul{
+    float: right;
+}
+.header ul li{
+    text-decoration: none;
+    float: left;
+    list-style: none;
+    border-left: 1px solid #ccc;   
+    margin: 0 10px;
+}
+.header ul li a{
+    margin: 20px;
+    text-align: center;
+    line-height: 30px;
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+    
+}
+.header ul li:hover a{
+    color: bisque;
+    
+} 
+.section{
+   
+    margin: 30px;
+    height: 60px;
+}
+.section .img{
+    display: inline-block;
+}
+.section .search{
+    display:inline-flex;
+    margin: 0 50px;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+.section .search input{
+    width: 400px;
+    height: 40px;
+    border-radius: 10px;
+}
+.section .search i{
+    position: absolute;
+    margin: 0 5px;
+    font-size: 20px;
+}
+.section .right {
+    list-style: none;
+    float: right;
+    position: relative;
+}
+.section .right li{
+    display: inline-flex;
+    margin: 10px;
+}
+.section .right li a {
+    text-decoration: none;
+    color: #000;
+    display: inline-block;
+    
+}
+.section .right li .abc{
+    border-right: 1px solid #000;
+    margin:0 5px;
+}
+.section .right li a:hover{
+    color: #5c6a6c;
+}
+.section .right li a i{
+    float: right;
+    margin: 0 5px;
+
+}
+
+.nav {
+    
+    background-color: blueviolet;
+    height: 50px;
+    width: 100%;
+} 
+.nav .subnav >li{
+    float: left;
+    margin: 0 15px;
+    line-height: 50px;
+    list-style: none;
+    position: relative;
+}
+.nav .subnav >li >a{
+    text-decoration: none;
+    color: #fff;
+    display: block;
+}
+.nav .subnav> li:hover> a{
+    color: #333;
+    background-color: orange;
+    transition:calc(1s);
+    border-radius: 5px;
+}
+.subnav ul> li:hover> .subnav .navbar{
+    display: block;
+    position: absolute;
+}
+.subnav .navbar {
+    position: relative;
+    background-color: #ccc;
+    
+}
+.subnav .navbar li {
+    list-style: none;
+    display: none;
+    
+}
+.subnav .navbar li a{
+    text-decoration: none;
+    color:#fff;
+}
+.subnav .navbar li:hover a{
+    color: #fff;
+    background-color:coral;
+}
+.main .main_section{
+    margin: 20px;
+}
+.main .main_section .main_section_left{
+    width: 30%;
+    height: 400px;
+    float: left;
+}
+.main .main_section .main_section_left img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    
+}
+.main .main_section .main_section_right{
+    float: left;
+    margin: 20px 40px;
+}
+.main .main_section .main_section_right p{
+    line-height: 30px;
+    margin: 10px 0;
+}
+.main .main_section .main_section_right input{
+    line-height: 30px;
+    margin: 10px 0;
+}
+.content{
+    width: 100%;
+    margin: 30px 0;
+    height: 600px;
+    display: inline-block;
+    background-color:#D3D3D3;
+    color: #777777;
+}
+.content .moinhat,
+.content .noibat,
+.content .danhgiacao,
+.content .khungtranhhot{
+    float: left;
+    width: 20%;
+    margin: 30px;
+}
+.content  .slide h4{
+    margin: 20px;
+}
+.content  .slide li{
+    display: flex;
+    flex-direction:row;
+}
+.content  .slide li{
+    margin: 20px;
+    list-style:none;
+}
+.content .slide a{  
+    float: left;    
+}
+.content  .slide a img{    
+    width: 80px;
+    height: 80px; 
+}
+.content .slide span{   
+    font-size: 15px;
+    color: #000;
+    margin: 20px;
+    display: flex;
+    flex-direction:initial;
+}
+.lienhe{
+    background-color: #FAF0E6;
+    height: 800px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin: 30px 0;
+    color: #777777;
+}
+.lienhe .vechungtoi,
+.lienhe .thongtin,
+.lienhe .bantim,
+.lienhe .baivietmoi{
+    margin: 30px;
+    width: 20%;
+}
+
+.lienhe .vechungtoi p{
+    margin: 20px 0;
+    font-size: 17px;
+    color: #777777;
+    line-height: 25px;
+}
+.lienhe .vechungtoi b{
+    margin: 10px;
+    line-height: 25px;
+}
+.lienhe .thongtin li{
+    list-style: none;
+    margin: 20px;
+}
+.lienhe .thongtin li a{
+    text-decoration: none;
+    color:#777777 ;
+}
+.lienhe .thongtin li:hover a{
+    color:#333;
+}
+.lienhe .bantim li{
+    list-style: none;
+    margin: 20px;
+    
+}
+.lienhe .bantim li a{
+    border: 1px solid #333;
+    text-decoration: none;
+    color: #483549;
+}
+.lienhe .bantim li:hover a{
+    color:#fff;
+    background-color:darkseagreen ;
+}
+.lienhe .baivietmoi li{
+    margin: 20px;
+    list-style: none;
+    display: flex;
+    left: 0; 
+    top:0;       
+}
+.lienhe .baivietmoi li img{
+    width: 80px;
+    height: 80px;
+}
+.lienhe .baivietmoi li a{
+    text-decoration: none;
+    color: #777777;
+    margin:0 10px;
+}
+footer{
+    height: 50px;
+    background-color: #85396e;
+    margin: 30px;
+}
+footer p{
+    text-align: center;
+    color:#fff;
+    margin: 0 70px;
+    line-height: 50px;
+    display: inline-block;
+}
