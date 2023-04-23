@@ -1,40 +1,75 @@
+import { Button, Grid, Typography } from "@mui/material";
+import BoxBody from "../../components/box-body";
+import IntroPage from "./intro";
+import CategoryCard from "../../components/category-card";
+import { LIST_PRODUCT_DATA } from "../../data/list-product";
+import { CATEGORY_DATA } from "../../data/category";
+import { getListProduct } from "../../data/product";
+import { useState } from "react";
+import CardProduct from "../../components/product-cart";
+import { convertWithCommas } from "../../ultis/number";
+
 function HomePage() {
-  return <div className="home">
-    <div className="silder">
-      <img src="https://bantranh.com/wp-content/uploads/2023/04/331149506_156379123937683_5145038622473713745_n.jpg" width="100%" height="400px" />
-    </div>
-    <div className="introduce"
-      style={{
-        display: "flex",
-        justifyContent: "space-around",
-        alignItems: "center",
-        margin: "12px 0",
-      }}>
-      <div className="quality">
-        <img src="https://bantranh.com/wp-content/uploads/2019/02/chatluong.png" width="24px" height="24px" />
-        <div className="quality-content"
+  const [expanded, setExpanded] = useState(false);
+  const listCate = LIST_PRODUCT_DATA.map((item) => {
+    const category = CATEGORY_DATA.find((cate) => item.idCate === cate.idCate);
+    return {
+      id: item.idList,
+      image: item.items[0].imageUrl,
+      title: category.name,
+      quantity: item.items.length,
+    };
+  });
 
-        >
-          <h3>Chất lượng</h3>
-          <i>Đảm bảo chất lượng những dịch vụ tốt nhất.</i>
-        </div>
-      </div>
+  const listItem = getListProduct();
 
-      <div className="speed">
-        < img src="https://bantranh.com/wp-content/uploads/2019/02/tocdo.png" width="24px" height="24px" />
-        <div className="speed-content">
-          <h3>Tốc độ</h3>
-          <i>Giao hàng nhanh chóng đến địa chỉ khách hàng.</i>
-        </div>
-      </div>
-      <div className="help">
-        <img src="https://bantranh.com/wp-content/uploads/2019/02/support-icon-400x400.png" width="24px" height="24px" />
-        <div className="help-content">
-          <h3>Trợ giúp</h3>
-          <i>Tư vấn và trợ giúp đặt hàng nhanh chóng.</i>
-        </div>
-      </div>
-    </div>
-  </div>;
+  return (
+    <BoxBody>
+      <IntroPage />
+
+      <Typography
+        variant="h5"
+        textAlign="center"
+        sx={{ fontWeight: 700 }}
+        mt={3}
+      >
+        Danh mục nổi bật
+      </Typography>
+      <Grid container spacing={2} mt={3}>
+        {listCate.map((item) => (
+          <Grid item xs={4} xl={6} key={item.id}>
+            <CategoryCard
+              title={item.title}
+              quantity={item.quantity}
+              image={item.image}
+            />
+          </Grid>
+        ))}
+      </Grid>
+      <Typography
+        variant="h5"
+        textAlign="center"
+        sx={{ fontWeight: 700 }}
+        mt={3}
+      >
+        Sản phẩm nổi bật
+      </Typography>
+      <Grid container spacing={2} mt={3}>
+        {listItem.slice(0, expanded ? listItem?.length : 3).map((item) => (
+          <Grid item xs={4} xl={6} key={item.id}>
+            <CardProduct
+              image={item.imageUrl}
+              name={item.nameProc}
+              price={convertWithCommas(item.price)}
+              cateName={item.nameCate}
+            />
+          </Grid>
+        ))}
+      </Grid>
+      <Button onClick={() => setExpanded(!expanded)}>
+        {expanded ? "Thu gọn" : "Xem thêm"}
+      </Button>
+    </BoxBody>
+  );
 }
 export default HomePage;

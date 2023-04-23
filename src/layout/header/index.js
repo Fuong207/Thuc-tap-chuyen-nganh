@@ -1,4 +1,4 @@
-import { Box, Button, IconButton, TextField, Typography } from "@mui/material";
+import { Box, Button, TextField, Typography } from "@mui/material";
 import BoxBody from "../../components/box-body";
 import { NAVIGATE_DATA } from "../../data/navigate";
 import { CATEGORY_DATA } from "../../data/category";
@@ -58,23 +58,26 @@ export default function Headers() {
           </Box>
         </BoxBody>
       </Box>
-      <Box
-        sx={{ height: 50, backgroundColor: "#6c5070" }}
-        display="flex"
-        height="100%"
-        justifyContent="space-around"
-        alignItems="center"
-      >
-        {CATEGORY_DATA.map((value) => (
-          <Typography
-            color="white"
-            padding={1}
-            fontSize="0.8em"
-            sx={{ cursor: "pointer" }}
+      <Box sx={{ height: 50, backgroundColor: "#6c5070" }}>
+        <BoxBody>
+          <Box
+            display="flex"
+            height="100%"
+            justifyContent="space-around"
+            alignItems="center"
           >
-            {value.name}
-          </Typography>
-        ))}
+            {CATEGORY_DATA.map((value) => (
+              <Typography
+                color="white"
+                padding={1}
+                fontSize="0.8em"
+                sx={{ cursor: "pointer" }}
+              >
+                {value.name}
+              </Typography>
+            ))}
+          </Box>
+        </BoxBody>
       </Box>
     </Box>
   );
