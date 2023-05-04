@@ -5,5 +5,5 @@ export const NAVIGATE_DATA = [
   "Bản đồ đến Shop",
   "Tuyển dụng",
   "Đăng tranh",
-  "Đăng nhâp/Đăng ký",
+  "Đăng nhâp / Đăng ký",
 ];

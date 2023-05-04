@@ -65,13 +65,15 @@ export default function Headers() {
             height="100%"
             justifyContent="space-around"
             alignItems="center"
+            textAlign="center"
           >
             {CATEGORY_DATA.map((value) => (
               <Typography
                 color="white"
                 padding={1}
                 fontSize="0.8em"
-                sx={{ cursor: "pointer" }}
+        
+                sx={{ cursor: "pointer"}}
               >
                 {value.name}
               </Typography>

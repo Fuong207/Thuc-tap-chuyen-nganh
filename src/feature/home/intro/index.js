@@ -18,40 +18,96 @@ export default function IntroPage() {
           margin: "12px 0",
         }}
       >
-        <div className="quality">
-          <img
-            src="https://bantranh.com/wp-content/uploads/2019/02/chatluong.png"
-            width="24px"
-            height="24px"
-            alt=""
-          />
+        <div className="quality"
+          style={{
+            display: "flex",
+            justifyContent: "space-around",
+            alignItems: "center",
+            margin: "12px 0",
+          }}
+        >
+          <div className="quality-img"
+            style={{
+              width: "32px",
+              border: "1px solid red",
+              borderRadius: "32px",
+              textAlign: "center",
+              padding: "6px",
+              margin: "16px",
+            }}
+          >
+            <img
+              src="https://bantranh.com/wp-content/uploads/2019/02/chatluong.png"
+              width="24px"
+              height="24px"
+              alt=""
+            />
+          </div>
+
           <div className="quality-content">
-            <h3>Chất lượng</h3>
+            <h3 style={{ margin: "0 0 6px 0" }}>Chất lượng</h3>
             <i>Đảm bảo chất lượng những dịch vụ tốt nhất.</i>
           </div>
         </div>
 
-        <div className="speed">
-          <img
-            src="https://bantranh.com/wp-content/uploads/2019/02/tocdo.png"
-            width="24px"
-            height="24px"
-            alt=""
-          />
+        <div className="speed"
+          style={{
+            display: "flex",
+            justifyContent: "space-around",
+            alignItems: "center",
+            margin: "12px 0",
+          }}>
+          <div className="speed-img"
+            style={{
+              width: "32px",
+              border: "1px solid red",
+              borderRadius: "32px",
+              textAlign: "center",
+              padding: "6px",
+              margin: "16px",
+            }}
+          >
+            <img
+              src="https://bantranh.com/wp-content/uploads/2019/02/tocdo.png"
+              width="24px"
+              height="24px"
+              alt=""
+            />
+          </div>
+
           <div className="speed-content">
-            <h3>Tốc độ</h3>
+            <h3 style={{ margin: "0 0 6px 0" }}>Tốc độ</h3>
             <i>Giao hàng nhanh chóng đến địa chỉ khách hàng.</i>
           </div>
         </div>
-        <div className="help">
-          <img
-            src="https://bantranh.com/wp-content/uploads/2019/02/support-icon-400x400.png"
-            width="24px"
-            height="24px"
-            alt=""
-          />
+        <div className="help"
+          style={{
+            display: "flex",
+            justifyContent: "space-around",
+            alignItems: "center",
+            margin: "12px 0",
+          }}
+        >
+          <div className="help-img"
+            style={{
+              width: "32px",
+              border: "1px solid red",
+              borderRadius: "32px",
+              textAlign: "center",
+              padding: "6px",
+              margin: "16px",
+            }}
+          >
+            <img
+              src="https://bantranh.com/wp-content/uploads/2019/02/support-icon-400x400.png"
+              width="24px"
+              height="24px"
+              alt=""
+            />
+          </div>
+
           <div className="help-content">
-            <h3>Trợ giúp</h3>
+            <h3 style={{ margin: "0 0 6px 0" }}>Trợ giúp</h3>
             <i>Tư vấn và trợ giúp đặt hàng nhanh chóng.</i>
           </div>
         </div>
