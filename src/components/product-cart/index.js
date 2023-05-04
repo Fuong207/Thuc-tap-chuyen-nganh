@@ -1,9 +1,20 @@
 import { Card, CardContent, CardMedia, Typography } from "@mui/material";
 
-export default function CardProduct({ image = "", name, price, cateName }) {
+export default function CardProduct({
+  image = "",
+  name,
+  price,
+  cateName,
+  onClick,
+}) {
   return (
     <Card>
-      <CardMedia component="img" image={image} alt="" sx={{width: 600, height: 400}} />
+      <CardMedia
+        component="img"
+        image={image}
+        alt=""
+        sx={{ width: 600, height: 400 }}
+      />
       <CardContent>
         <Typography variant="body1" sx={{ opacity: 0.7 }}>
           {cateName}

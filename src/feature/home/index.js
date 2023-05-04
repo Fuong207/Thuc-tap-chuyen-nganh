@@ -8,9 +8,12 @@ import { getListProduct } from "../../data/product";
 import { useState } from "react";
 import CardProduct from "../../components/product-cart";
 import { convertWithCommas } from "../../ultis/number";
+import { useNavigate } from "react-router";
+import { ROUTE } from "../../router/config";
 
 function HomePage() {
   const [expanded, setExpanded] = useState(false);
+  const navigate = useNavigate();
   const listCate = LIST_PRODUCT_DATA.map((item) => {
     const category = CATEGORY_DATA.find((cate) => item.idCate === cate.idCate);
     return {
@@ -35,14 +38,13 @@ function HomePage() {
       >
         Danh mục nổi bật
       </Typography>
-      <Grid container spacing={2} mt={3} >
+      <Grid container spacing={2} mt={3}>
         {listCate.map((item) => (
-          <Grid item xs={4} xl={6} key={item.id} >
+          <Grid item xs={4} xl={6} key={item.id}>
             <CategoryCard
               title={item.title}
               quantity={item.quantity}
               image={item.image}
-              
             />
           </Grid>
         ))}
@@ -55,15 +57,15 @@ function HomePage() {
       >
         Sản phẩm nổi bật
       </Typography>
-      <Grid container spacing={2} mt={3} >
+      <Grid container spacing={2} mt={3}>
         {listItem.slice(0, expanded ? listItem?.length : 4).map((item) => (
-          <Grid item xs={4} xl={6} key={item.id} >
+          <Grid item xs={4} xl={6} key={item.id}>
             <CardProduct
               image={item.imageUrl}
               name={item.nameProc}
               price={convertWithCommas(item.price)}
               cateName={item.nameCate}
-             
+              onClick={() => navigate(ROUTE.DETAIL.replace(":id", item.id))}
             />
           </Grid>
         ))}
