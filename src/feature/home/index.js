@@ -58,7 +58,7 @@ function HomePage() {
         Sản phẩm nổi bật
       </Typography>
       <Grid container spacing={2} mt={3}>
-        {listItem.slice(0, expanded ? listItem?.length : 4).map((item) => (
+        {listItem.slice(0, expanded ? listItem?.length : 3).map((item) => (
           <Grid item xs={4} xl={6} key={item.id}>
             <CardProduct
               image={item.imageUrl}

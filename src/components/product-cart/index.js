@@ -8,7 +8,7 @@ export default function CardProduct({
   onClick,
 }) {
   return (
-    <Card>
+    <Card onClick={onClick} sx={{ cursor: "pointer" }}>
       <CardMedia
         component="img"
         image={image}

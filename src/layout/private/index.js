@@ -11,7 +11,7 @@ export default function PrivateLayout({ children }) {
       }}
     >
       <Headers />
-      <Box sx={{ marginTop: "120px" }}>{children}</Box>
+      <Box sx={{ marginTop: "150px", minHeight: 120 }}>{children}</Box>
       <Footer />
     </Box>
   );
