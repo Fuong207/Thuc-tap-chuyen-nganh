@@ -1,11 +1,11 @@
 export default function IntroPage() {
   return (
     <>
-      <div className="silder">
+      <div className="silder" >
         <img
           src="https://bantranh.com/wp-content/uploads/2023/04/331149506_156379123937683_5145038622473713745_n.jpg"
           width="100%"
-          height="400px"
+          height="500px"
           alt=""
         />
       </div>

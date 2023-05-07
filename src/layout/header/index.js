@@ -13,7 +13,7 @@ export default function Headers() {
         height: 150,
         position: "fixed",
         top: 0,
-        zIndex: 100
+        zIndex:1
       }}
     >
       <Box sx={{ height: 30, backgroundColor: "#d36b97" }}>
