@@ -44,7 +44,7 @@ export default function ProductDetail() {
             className={classes.img}
           />
         </Grid>
-        <Grid item xs={4} xl={12}>
+        <Grid item xs={4} xl={12} >
           <Typography variant="h4" mt={1} mb={1}>
             {item.nameProc}
           </Typography>
@@ -53,16 +53,16 @@ export default function ProductDetail() {
           )} đ`}</Typography>
           <Typography color="#777">{item.nameCate}</Typography>
           <Typography color="#777">{item.size}</Typography>
-          <Box mt={1}>
-            <TextField type="number" size="small" />
-            <Button variant="outlined">Thêm vào giỏ</Button>
+          <Box mt={1} sx={{display: "flex", justifyContent: "start", alignItems:"center"}}>
+            <TextField type="number" size="small" sx={{width: "80px"}}/>
+            <Button sx={{marginLeft: 2,backgroundColor: "#df6a6a", color: "#fff", fontSize: "1em", textAlign: "center"}}>Thêm vào giỏ</Button>
           </Box>
-          <Button variant="outlined" fullWidth sx={{ marginTop: 2 }}>
+          <Button fullWidth sx={{ marginTop: 2, width: "250px", backgroundColor: "#fb6e2e", color: "#fff", fontSize: "1em", textAlign: "center", }}>
             Mua ngay
           </Button>
         </Grid>
         <Grid item xs={2} xl={12} color="#777">
-          <Typography variant="h6">Đặt hàng và thanh toán</Typography>
+          <Typography  variant="h6">Đặt hàng và thanh toán</Typography>
           <Typography>Đặt hàng trực tuyến trên website.</Typography>
           <Typography>Đặt hàng qua điện thoại (zalo): 0983568361</Typography>
           <Typography>
