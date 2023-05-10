@@ -1,8 +1,10 @@
 import { Box } from "@mui/material";
 import { PropTypes } from "prop-types";
 import { ReactComponent as Search } from "../../access/icon/search.svg";
+import { ReactComponent as Card } from "../../access/icon/card.svg";
 const icons = {
   search: <Search />,
+  card: <Card />,
 };
 const Icon = ({ name, fill, size, sx, ...props }) => {
   return (

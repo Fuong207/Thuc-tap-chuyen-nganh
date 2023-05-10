@@ -1,11 +1,28 @@
-import { Box, Button, TextField, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  IconButton,
+  Popover,
+  TextField,
+  Typography,
+} from "@mui/material";
 import BoxBody from "../../components/box-body";
 import { NAVIGATE_DATA } from "../../data/navigate";
 import { CATEGORY_DATA } from "../../data/category";
-import Cart from "../../feature/cart";
 import Icon from "../../components/icon";
+import { useState } from "react";
+import { getSessionItem } from "../../ultis/store";
+import CardItem from "../../components/card-item";
 
 export default function Headers() {
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+  const onClose = () => setAnchorEl(null);
+  const handleOpen = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const cardArr = getSessionItem("cards") || [];
   return (
     <Box
       sx={{
@@ -13,7 +30,7 @@ export default function Headers() {
         height: 150,
         position: "fixed",
         top: 0,
-        zIndex:1
+        zIndex: 1,
       }}
     >
       <Box sx={{ height: 30, backgroundColor: "#d36b97" }}>
@@ -46,16 +63,42 @@ export default function Headers() {
               height="51px"
             />
             <TextField
-              sx={{ margin: "0 32px" }}
+              sx={{ ml: 2 }}
               id="margin-none"
               fullWidth
               size="small"
               placeholder="Tìm kiếm sản phẩm"
             />
-            <Button variant="outlined">
+            <Button variant="outlined" sx={{ ml: 1 }}>
               <Icon name="search" />
             </Button>
-            <Cart />
+            <IconButton sx={{ ml: 1 }} onMouseOver={(e) => handleOpen(e)}>
+              <Icon name="card" size={30} />
+              <Typography color="red">{cardArr.length}</Typography>
+            </IconButton>
+            <Popover
+              open={open}
+              anchorEl={anchorEl}
+              onClose={onClose}
+              PaperProps={{
+                variant: "caret",
+                sx: { overflow: "hidden" },
+              }}
+              anchorOrigin={{
+                vertical: "bottom",
+                horizontal: "right",
+              }}
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+            >
+              <Box sx={{ width: 300 }}>
+                {/* {cardArr.map((item) => (
+                  <CardItem key={item.id} />
+                ))} */}
+              </Box>
+            </Popover>
           </Box>
         </BoxBody>
       </Box>
@@ -73,8 +116,7 @@ export default function Headers() {
                 color="white"
                 padding={1}
                 fontSize="0.8em"
-        
-                sx={{ cursor: "pointer"}}
+                sx={{ cursor: "pointer" }}
               >
                 {value.name}
               </Typography>
