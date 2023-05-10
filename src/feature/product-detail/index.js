@@ -7,7 +7,7 @@ import {
   Typography,
 } from "@mui/material";
 import BoxBody from "../../components/box-body";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { getListProduct } from "../../data/product";
 import { useClasses } from "../../theme/helper";
 import style from "./style";
@@ -15,27 +15,40 @@ import { convertWithCommas } from "../../ultis/number";
 import CardProduct from "../../components/product-cart";
 import { useState } from "react";
 import { getSessionItem, setSessionItem } from "../../ultis/store";
+import { isEmpty } from "lodash";
+import { ROUTE } from "../../router/config";
 
 export default function ProductDetail() {
   const classes = useClasses(style);
   const { id } = useParams();
   const listItem = getListProduct();
   const [quantity, setQuantity] = useState(0);
+  const navigate = useNavigate();
 
   const item = listItem.find((item) => item.id === +id);
 
   const cardArr = getSessionItem("cards") || [];
 
-  console.log(item);
-
   const handleAdd = () => {
-    setSessionItem("cards", [
-      ...cardArr,
-      {
-        ...item,
-        quantity,
-      },
-    ]);
+    const old = cardArr.find((card) => item.id === card.id);
+    if (!isEmpty(old)) {
+      const itemOther = cardArr.filter((card) => card.id !== item.id);
+      setSessionItem("cards", [
+        ...itemOther,
+        {
+          ...item,
+          quantity,
+        },
+      ]);
+    } else {
+      setSessionItem("cards", [
+        ...cardArr,
+        {
+          ...item,
+          quantity,
+        },
+      ]);
+    }
     alert("Đã thêm thành công");
   };
 
@@ -203,6 +216,7 @@ export default function ProductDetail() {
               name={item.nameProc}
               price={convertWithCommas(item.price)}
               cateName={item.nameCate}
+              onClick={() => navigate(ROUTE.DETAIL.replace(":id", item.id))}
             />
           </Grid>
         ))}

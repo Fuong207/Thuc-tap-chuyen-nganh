@@ -2,6 +2,7 @@ import {
   Box,
   Button,
   IconButton,
+  List,
   Popover,
   TextField,
   Typography,
@@ -13,16 +14,27 @@ import Icon from "../../components/icon";
 import { useState } from "react";
 import { getSessionItem } from "../../ultis/store";
 import CardItem from "../../components/card-item";
+import { isEmpty } from "lodash";
+import { useClasses } from "../../theme/helper";
+import style from "./style";
+import { useNavigate } from "react-router";
+import { ROUTE } from "../../router/config";
 
 export default function Headers() {
   const [anchorEl, setAnchorEl] = useState(null);
+  const classes = useClasses(style);
   const open = Boolean(anchorEl);
-  const onClose = () => setAnchorEl(null);
+  const navigate = useNavigate();
+  const onClose = () => {
+    setAnchorEl(null);
+  };
+
   const handleOpen = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
   const cardArr = getSessionItem("cards") || [];
+
   return (
     <Box
       sx={{
@@ -72,7 +84,7 @@ export default function Headers() {
             <Button variant="outlined" sx={{ ml: 1 }}>
               <Icon name="search" />
             </Button>
-            <IconButton sx={{ ml: 1 }} onMouseOver={(e) => handleOpen(e)}>
+            <IconButton sx={{ ml: 1 }} onClick={(e) => handleOpen(e)}>
               <Icon name="card" size={30} />
               <Typography color="red">{cardArr.length}</Typography>
             </IconButton>
@@ -92,12 +104,36 @@ export default function Headers() {
                 vertical: "top",
                 horizontal: "right",
               }}
+              className={classes.root}
             >
-              <Box sx={{ width: 300 }}>
-                {/* {cardArr.map((item) => (
-                  <CardItem key={item.id} />
-                ))} */}
-              </Box>
+              {isEmpty(cardArr) ? (
+                <Box sx={{ width: 300, height: 100 }} alignItems="center">
+                  <Typography textAlign="center">
+                    Không có mặt hàng nào
+                  </Typography>
+                </Box>
+              ) : (
+                <Box sx={{ width: 300 }}>
+                  <List className={classes.list}>
+                    {cardArr.map((item) => (
+                      <CardItem
+                        key={item.id}
+                        nameProc={item.nameProc}
+                        price={item.price}
+                        quantity={item.quantity}
+                        imageUrl={item.imageUrl}
+                      />
+                    ))}
+                  </List>
+                  <Button
+                    variant="contained"
+                    sx={{ mb: 1, ml: 1, mr: 1, mt: 1, width: 200 }}
+                    onClick={() => navigate(ROUTE.CART)}
+                  >
+                    Đến giỏ hàng
+                  </Button>
+                </Box>
+              )}
             </Popover>
           </Box>
         </BoxBody>
