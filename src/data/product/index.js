@@ -355,7 +355,7 @@ export const getListProduct = () => {
   const listItem = PRODUCT_DATA.reduce((prev, curr) => {
     const porducts = curr.items.map((product) => ({
       ...product,
-      id: product.idProc + curr.idList,
+      id: `${product.idProc}-${curr.idList}`,
     }));
     return [...prev, ...porducts];
   }, []);

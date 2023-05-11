@@ -13,21 +13,27 @@ import { useClasses } from "../../theme/helper";
 import style from "./style";
 import { convertWithCommas } from "../../ultis/number";
 import CardProduct from "../../components/product-cart";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { getSessionItem, setSessionItem } from "../../ultis/store";
 import { isEmpty } from "lodash";
 import { ROUTE } from "../../router/config";
+import { scrollToTop } from "../../ultis/scroll";
 
 export default function ProductDetail() {
   const classes = useClasses(style);
   const { id } = useParams();
   const listItem = getListProduct();
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
   const navigate = useNavigate();
 
-  const item = listItem.find((item) => item.id === +id);
+  const item = listItem.find((item) => item.id === id);
 
   const cardArr = getSessionItem("cards") || [];
+
+  useEffect(() => {
+    scrollToTop();
+    setQuantity(1);
+  }, [id]);
 
   const handleAdd = () => {
     const old = cardArr.find((card) => item.id === card.id);
