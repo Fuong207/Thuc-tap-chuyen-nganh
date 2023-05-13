@@ -107,8 +107,14 @@ export default function Headers() {
               className={classes.root}
             >
               {isEmpty(cardArr) ? (
-                <Box sx={{ width: 300, height: 100 }} alignItems="center">
-                  <Typography textAlign="center">
+                <Box sx={{
+                  width: 400,
+                  height: 100,
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}>
+                  <Typography >
                     Không có mặt hàng nào
                   </Typography>
                 </Box>
@@ -147,14 +153,15 @@ export default function Headers() {
             alignItems="center"
             textAlign="center"
           >
-            {CATEGORY_DATA.map((value) => (
-              <Typography
-                color="white"
-                padding={1}
-                fontSize="0.8em"
-                sx={{ cursor: "pointer" }}
-              >
-                {value.name}
+            {CATEGORY_DATA.map((cate) => (
+              <Typography >
+                <Button
+
+                  sx={{ cursor: "pointer", color: "white", padding: 1, fontSize: "0.8em" }}
+                  onClick={() => navigate(ROUTE.LISTPRODUCT.replace(":id", cate.idCate))}
+                >
+                  {cate.name}
+                </Button>
               </Typography>
             ))}
           </Box>

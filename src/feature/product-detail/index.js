@@ -25,11 +25,8 @@ export default function ProductDetail() {
   const listItem = getListProduct();
   const [quantity, setQuantity] = useState(1);
   const navigate = useNavigate();
-
   const item = listItem.find((item) => item.id === id);
-
   const cardArr = getSessionItem("cards") || [];
-
   useEffect(() => {
     scrollToTop();
     setQuantity(1);

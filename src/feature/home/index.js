@@ -18,6 +18,7 @@ function HomePage() {
     const category = CATEGORY_DATA.find((cate) => item.idCate === cate.idCate);
     return {
       id: item.idList,
+      idCate: item.idCate,
       image: item.items[0].imageUrl,
       title: category.name,
       quantity: item.items.length,
@@ -40,11 +41,16 @@ function HomePage() {
       </Typography>
       <Grid container spacing={2} mt={3}>
         {listCate.map((item) => (
-          <Grid item xs={4} xl={6} key={item.id}>
+          <Grid item xs={4} xl={6} key={item.idCate}
+            sx={{
+              cursor:"pointer"
+            }}
+          >
             <CategoryCard
               title={item.title}
               quantity={item.quantity}
               image={item.image}
+              onClick={() => navigate(ROUTE.LISTPRODUCT.replace(":id", item.idCate))}
             />
           </Grid>
         ))}

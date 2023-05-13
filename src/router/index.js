@@ -1,6 +1,7 @@
 import Cart from "../feature/cart";
 import HomePage from "../feature/home";
 import ProductDetail from "../feature/product-detail";
+import ListProduct from "../feature/list-product";
 import { ROUTE } from "./config";
 
 export const APP_ROUTER = [
@@ -16,4 +17,8 @@ export const APP_ROUTER = [
     path: ROUTE.DETAIL,
     element: ProductDetail,
   },
+  {
+    path: ROUTE.LISTPRODUCT,
+    element: ListProduct,
+  }
 ];

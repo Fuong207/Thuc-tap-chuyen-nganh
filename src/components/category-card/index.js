@@ -1,8 +1,8 @@
 import { Card, CardContent, CardMedia, Typography } from "@mui/material";
 
-export default function CategoryCard({ title = "", quantity, image = "" }) {
+export default function CategoryCard({ title = "", quantity, image = "", onClick, }) {
   return (
-    <Card>
+    <Card onClick={onClick}>
       <CardMedia component="img" image={image} alt="" sx={{width: 600, height: 400}} />
       <CardContent>
         <Typography variant="h5">{title}</Typography>
