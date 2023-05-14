@@ -34,7 +34,11 @@ function HomePage() {
       <Typography
         variant="h5"
         textAlign="center"
-        sx={{ fontWeight: 700 }}
+        sx={{ 
+          fontWeight: 700,
+          color:"#555",
+          borderBottom: "1px solid #ccc",
+        }}
         mt={3}
       >
         Danh mục nổi bật
@@ -58,7 +62,12 @@ function HomePage() {
       <Typography
         variant="h5"
         textAlign="center"
-        sx={{ fontWeight: 700 }}
+        sx={{ 
+          fontWeight: 700,
+          color:"#555",
+          borderBottom: "1px solid #ccc",
+          margin: "20px 0",
+        }}
         mt={3}
       >
         Sản phẩm nổi bật
