@@ -4,7 +4,11 @@ import { NAVIGATE_DATA } from "../../data/navigate";
 
 export default function Footer() {
   return (
-    <Box>
+    <Box sx={{
+      position: "absolute",
+      bottom: 0,
+      width: "100%",
+    }}>
       <Box textAlign="center">
         <BoxBody>
           <Box>

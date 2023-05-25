@@ -16,8 +16,8 @@ import ItemSettingTable from "./item-setting-table";
 import { useState } from "react";
 import { convertWithCommas } from "../../ultis/number";
 import { getSessionItem, setSessionItem } from "../../ultis/store";
-
-function Cart() {
+import { ROUTE } from "../../router/config";
+export default function Cart() {
   const breadcrumbs = [
     <Link to="/" style={{ textDecoration: "none" }}>
       <Typography>Trang chủ</Typography>
@@ -103,7 +103,9 @@ function Cart() {
               />
             </ListItem>
             <ListItem>
-              <Button variant="contained" fullWidth>
+              <Button variant="contained" fullWidth
+                 onClick={() => navigate(ROUTE.CHECKOUT)}
+              >
                 Tiến hành thanh toán
               </Button>
             </ListItem>
@@ -113,4 +115,3 @@ function Cart() {
     </BoxBody>
   );
 }
-export default Cart;

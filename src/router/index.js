@@ -2,6 +2,7 @@ import Cart from "../feature/cart";
 import HomePage from "../feature/home";
 import ProductDetail from "../feature/product-detail";
 import ListProduct from "../feature/list-product";
+import Checkout from "../feature/chekout";
 import { ROUTE } from "./config";
 
 export const APP_ROUTER = [
@@ -20,5 +21,9 @@ export const APP_ROUTER = [
   {
     path: ROUTE.LISTPRODUCT,
     element: ListProduct,
-  }
+  },
+  {
+    path: ROUTE.CHECKOUT,
+    element: Checkout,
+  },
 ];
