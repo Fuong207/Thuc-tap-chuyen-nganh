@@ -20,7 +20,7 @@ export default function CardProduct({
           {cateName}
         </Typography>
         <Typography variant="body1">{name}</Typography>
-        <Typography variant="body2">{`Giá: ${price} VND`}</Typography>
+        <Typography sx={{color: '#df6a6a'}} variant="body2">{`Giá: ${price} VND`}</Typography>
       </CardContent>
     </Card>
   );

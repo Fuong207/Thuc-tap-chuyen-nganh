@@ -42,7 +42,7 @@ export default function Headers() {
         height: 150,
         position: "fixed",
         top: 0,
-        zIndex: 1,
+        zIndex: 10,
       }}
     >
       <Box sx={{ height: 30, backgroundColor: "#d36b97" }}>

@@ -55,7 +55,7 @@ export default function ListProduct() {
                             }
                             } />
                         <Typography sx={{ fontSize: "1rem", fontWeight: "bolder", marginTop: "6px" }}> {item.name}</Typography>
-                        <Typography sx={{ fontSize: "1rem", fontColor: "#ff0000" }}>{convertWithCommas(item.price)}</Typography>
+                        <Typography sx={{ fontSize: "1rem", fontColor: "#ff0000", color: "#df6a6a"}}>Giá: {convertWithCommas(item.price)}</Typography>
                         <Button variant="contained" sx={{
                             border: "1px solid #333",
                             textAlign: "center",
