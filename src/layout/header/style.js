@@ -12,5 +12,4 @@ const style = () => ({
     position: "relative",
   },
 });
-
 export default style;

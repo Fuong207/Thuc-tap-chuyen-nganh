@@ -17,6 +17,9 @@ import { useState } from "react";
 import { convertWithCommas } from "../../ultis/number";
 import { getSessionItem, setSessionItem } from "../../ultis/store";
 import { ROUTE } from "../../router/config";
+import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
+import SystemUpdateAltIcon from '@mui/icons-material/SystemUpdateAlt';
+
 export default function Cart() {
   const breadcrumbs = [
     <Link to="/" style={{ textDecoration: "none" }}>
@@ -30,7 +33,6 @@ export default function Cart() {
   const navigate = useNavigate();
 
   const cards = getSessionItem("cards") || [];
-
   const items = cards.map((card) => ({
     ...card,
     id: card?.id,
@@ -71,10 +73,17 @@ export default function Cart() {
               setValue={setValue}
             />
             <Box sx={{ mt: 4 }}>
-              <Button variant="outlined" onClick={() => navigate("/")}>
+              <Button
+                variant="outlined"
+                startIcon={<ArrowLeftIcon />}
+                onClick={() => navigate("/")}>
                 Tiếp tục xem sản phẩm
               </Button>
-              <Button variant="contained" sx={{ ml: 4 }} type="submit">
+              <Button
+                variant="contained"
+                endIcon={<SystemUpdateAltIcon />}
+                sx={{ ml: 4 }}
+                type="submit">
                 Cập nhât giỏ hàng
               </Button>
             </Box>
@@ -103,8 +112,10 @@ export default function Cart() {
               />
             </ListItem>
             <ListItem>
-              <Button variant="contained" fullWidth
-                 onClick={() => navigate(ROUTE.CHECKOUT)}
+              <Button
+                variant="contained"
+                fullWidth
+                onClick={() => cards.length > 0 ? navigate(ROUTE.CHECKOUT) : alert("Bạn chưa có sản phẩm nào trong giỏ hàng!")}
               >
                 Tiến hành thanh toán
               </Button>

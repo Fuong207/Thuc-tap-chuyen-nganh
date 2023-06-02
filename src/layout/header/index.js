@@ -6,6 +6,7 @@ import {
   Popover,
   TextField,
   Typography,
+  InputAdornment,
 } from "@mui/material";
 import BoxBody from "../../components/box-body";
 import { NAVIGATE_DATA } from "../../data/navigate";
@@ -19,6 +20,10 @@ import { useClasses } from "../../theme/helper";
 import style from "./style";
 import { useNavigate } from "react-router";
 import { ROUTE } from "../../router/config";
+import { Link } from "react-router-dom";
+import { NAVIGATION } from "../../router/config";
+import SearchIcon from '@mui/icons-material/Search';
+import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 
 export default function Headers() {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -34,29 +39,41 @@ export default function Headers() {
   };
 
   const cardArr = getSessionItem("cards") || [];
-
   return (
     <Box
       sx={{
         width: "100vw",
-        height: 150,
+        height: 160,
         position: "fixed",
         top: 0,
+        overflow: "hidden",
         zIndex: 10,
       }}
     >
-      <Box sx={{ height: 30, backgroundColor: "#d36b97" }}>
-        <BoxBody>
-          <Box display="flex" justifyContent="end" alignItems="center">
-            {NAVIGATE_DATA.map((value) => (
-              <Typography
-                color="white"
-                padding={1}
-                fontSize="0.8em"
-                sx={{ cursor: "pointer" }}
+      <Box sx={{ height: 40, backgroundColor: "#d36b97" }}>
+        <BoxBody >
+          <Box sx={{
+            display: "flex",
+            justifyContent: "end",
+            alignItems: "center",
+            height: "100%",
+            overflow: "hidden",
+          }}>
+            {NAVIGATE_DATA.map((value, index) => (
+              <Link
+                className="navigation-link"
+                key={index}
+                style={{
+                  cursor: "pointer",
+                  color: "white",
+                  padding: "16px 12px",
+                  fontSize: "0.9em",
+                  textDecoration: "none",
+                }}
+                to={NAVIGATION[index]}
               >
                 {value}
-              </Typography>
+              </Link>
             ))}
           </Box>
         </BoxBody>
@@ -69,21 +86,31 @@ export default function Headers() {
             justifyContent="space-between"
             alignItems="center"
           >
-            <img
-              src="https://bantranh.com/wp-content/uploads/2019/02/logo-2.png"
-              alt=""
-              height="51px"
-            />
+            <Link style={{ cursor: "default" }} to="/">
+              <img
+                src="https://bantranh.com/wp-content/uploads/2019/02/logo-2.png"
+                alt=""
+                height="50px"
+              />
+            </Link>
             <TextField
-              sx={{ ml: 2 }}
+              sx={{ ml: 2, padding: "12px" }}
               id="margin-none"
+              variant="outlined"
               fullWidth
               size="small"
               placeholder="Tìm kiếm sản phẩm"
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment  position="end">
+                    <IconButton >
+                      <SearchIcon />
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
+
             />
-            <Button variant="outlined" sx={{ ml: 1 }}>
-              <Icon name="search" />
-            </Button>
             <IconButton sx={{ ml: 1 }} onClick={(e) => handleOpen(e)}>
               <Icon name="card" size={30} />
               <Typography color="red">{cardArr.length}</Typography>
@@ -133,6 +160,8 @@ export default function Headers() {
                   </List>
                   <Button
                     variant="contained"
+                    endIcon={<ArrowCircleRightIcon
+                    />}
                     sx={{ mb: 1, ml: 1, mr: 1, mt: 1, width: 200 }}
                     onClick={() => navigate(ROUTE.CART)}
                   >
@@ -148,21 +177,29 @@ export default function Headers() {
         <BoxBody>
           <Box
             display="flex"
-            height="100%"
             justifyContent="space-around"
             alignItems="center"
+            height="100%"
             textAlign="center"
-          >
-            {CATEGORY_DATA.map((cate) => (
-              <Typography >
-                <Button
+            overflow="hidden"
 
-                  sx={{ cursor: "pointer", color: "white", padding: 1, fontSize: "0.8em" }}
-                  onClick={() => navigate(ROUTE.LISTPRODUCT.replace(":id", cate.idCate))}
-                >
-                  {cate.name}
-                </Button>
-              </Typography>
+          >
+            {CATEGORY_DATA.map((cate,index) => (
+              <Link to={ROUTE.LISTPRODUCT.replace(":id", cate.idCate)}
+                className="category-link"
+                key={index}
+                style={{
+                  cursor: "pointer",
+                  color: "white",
+                  padding: "18px 0",
+                  fontSize: ".8em",
+                  textAlign: "center",
+                  textDecoration: "none",
+                  width: "100%",
+                }}
+              >
+                {cate.name}
+              </Link>
             ))}
           </Box>
         </BoxBody>

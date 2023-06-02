@@ -76,7 +76,7 @@ function NotFoundPage() {
         </span>
       </div>
       <Typography sx={{ fontSize: 20, mt: 1 }}>404 - Page Not Found</Typography>
-      <Button onClick={() => navigate("/")} sx={{ mt: 3 }}>
+      <Button variant="contained" onClick={() => navigate("/")} sx={{ mt: 3 }}>
         Back to Home
       </Button>
     </Box>

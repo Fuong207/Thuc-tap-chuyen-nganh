@@ -10,6 +10,7 @@ import CardProduct from "../../components/product-cart";
 import { convertWithCommas } from "../../ultis/number";
 import { useNavigate } from "react-router";
 import { ROUTE } from "../../router/config";
+import UnfoldMoreIcon from '@mui/icons-material/UnfoldMore';
 
 function HomePage() {
   const [expanded, setExpanded] = useState(false);
@@ -30,24 +31,23 @@ function HomePage() {
   return (
     <BoxBody>
       <IntroPage />
-
       <Typography
         variant="h5"
         textAlign="center"
-        sx={{ 
+        sx={{
           fontWeight: 700,
-          color:"#555",
+          color: "#555",
           borderBottom: "1px solid #ccc",
         }}
         mt={3}
       >
         Danh mục nổi bật
       </Typography>
-      <Grid container spacing={2} mt={3}>
+      <Grid container spacing={2} mt={3} columns={{ xs: 4, sm: 8, md: 12 }}>
         {listCate.map((item) => (
           <Grid item xs={4} xl={6} key={item.idCate}
             sx={{
-              cursor:"pointer"
+              cursor: "pointer"
             }}
           >
             <CategoryCard
@@ -62,9 +62,9 @@ function HomePage() {
       <Typography
         variant="h5"
         textAlign="center"
-        sx={{ 
+        sx={{
           fontWeight: 700,
-          color:"#555",
+          color: "#555",
           borderBottom: "1px solid #ccc",
           margin: "20px 0",
         }}
@@ -72,8 +72,8 @@ function HomePage() {
       >
         Sản phẩm nổi bật
       </Typography>
-      <Grid container spacing={2} mt={3}>
-        {listItem.slice(0, expanded ? listItem?.length : 3).map((item) => (
+      <Grid container spacing={2} mt={3} mb={2} columns={{ xs: 4, sm: 8, md: 16 }}>
+        {listItem.slice(0, expanded ? listItem?.length : 8).map((item) => (
           <Grid item xs={4} xl={6} key={item.id}>
             <CardProduct
               image={item.imageUrl}
@@ -85,7 +85,10 @@ function HomePage() {
           </Grid>
         ))}
       </Grid>
-      <Button onClick={() => setExpanded(!expanded)}>
+      <Button
+        variant="outlined"
+        endIcon={<UnfoldMoreIcon />}
+        onClick={() => setExpanded(!expanded)}>
         {expanded ? "Thu gọn" : "Xem thêm"}
       </Button>
     </BoxBody>

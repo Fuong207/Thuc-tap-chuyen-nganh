@@ -26,3 +26,10 @@ code {
   background: url("https://bantranh.com/wp-content/themes/flatsome/assets/img/underline.png") 50% top no-repeat;
   background-size: 100% 9px;
 }
+.category-link:hover {
+  background-color: #df6a6a;
+  transition: background-color .5s ease ;
+}
+.navigation-link:hover{
+  opacity: 0.8;
+}

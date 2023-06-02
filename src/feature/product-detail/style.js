@@ -1,8 +1,9 @@
 const style = () => ({
   img: {
-    maxWidth: "95%",
-    height: "auto",
+    width:"575px",
+    height:"460px",
   },
+
 });
 
 export default style;

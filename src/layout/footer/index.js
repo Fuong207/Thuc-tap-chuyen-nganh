@@ -1,8 +1,12 @@
 import { Box, Typography } from "@mui/material";
 import BoxBody from "../../components/box-body";
 import { NAVIGATE_DATA } from "../../data/navigate";
-
+import { NAVIGATION } from "../../router/config";
+import { Link } from "react-router-dom";
+import { scrollToTop } from "../../ultis/scroll";
 export default function Footer() {
+
+  scrollToTop()
   return (
     <Box sx={{
       position: "absolute",
@@ -22,18 +26,23 @@ export default function Footer() {
       <Box>
         <BoxBody>
           <Box display="flex" justifyContent="center" alignItems="center">
-            {NAVIGATE_DATA.map((value) => (
-              <Typography
-                color="#ccc"
-                padding={2}
-                fontSize="0.85em"
-                textAlign="center"
-                textTransform="uppercase"
-                lineHeight="1.2"
-                sx={{ cursor: "pointer" }}
+            {NAVIGATE_DATA.slice(0, 5).map((value, index) => (
+              <Link
+                key={index}
+                style={{
+                  color: "#ccc",
+                  padding: "16px",
+                  fontSizes: "0.8em",
+                  textAlign: "center",
+                  textTransform: "uppercase",
+                  lineHeight: "1.2",
+                  cursor: "pointer",
+                  textDecoration: "none",
+                }
+                } to={NAVIGATION[index]}
               >
                 {value}
-              </Typography>
+              </Link>
             ))}
           </Box>
         </BoxBody>

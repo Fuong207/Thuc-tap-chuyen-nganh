@@ -19,11 +19,12 @@ import { convertWithCommas } from "../../ultis/number";
 import { useForm } from "react-hook-form";
 import { isEmpty } from "lodash";
 import { ROUTE } from "../../router/config";
+
 export default function Checkout() {
   const breadcrumbs = [
     <Link
       to="/"
-      key="3"
+      key="1"
       color="text.primary"
       style={{ textDecoration: "none" }}
     >
@@ -31,7 +32,7 @@ export default function Checkout() {
     </Link>,
     <Link
       to="/cart"
-      key="3"
+      key="2"
       color="text.primary"
       style={{ textDecoration: "none" }}
     >
@@ -76,7 +77,7 @@ export default function Checkout() {
   }));
 
   const totalInit = items.reduce((prev, curr) => +prev + +curr.total, 0);
-
+  console.log(items);
   const textRequired = "Trường này bắt buộc phải nhập";
 
   const {
@@ -115,9 +116,9 @@ export default function Checkout() {
       <Breadcrumbs separator="/" aria-label="breadcrumb">
         {breadcrumbs}
       </Breadcrumbs>
-      <form onSubmit={handleSubmit(submitForm)}>
-        <Grid container spacing={2}>
-          <Grid item xs={12} xl={6}>
+      <form onSubmit={handleSubmit(submitForm)} style={{ marginTop: "48px" }}>
+        <Grid container spacing={6} >
+          <Grid item xs={12} xl={6} >
             <Typography
               variant="h1"
               sx={{
@@ -266,18 +267,19 @@ export default function Checkout() {
             </Box>
           </Grid>
           <Grid item xs={6} xl={6}>
-            <Typography>ĐƠN HÀNG CỦA BẠN</Typography>
+            <Typography sx={{ fontWeight: "bold" }}>ĐƠN HÀNG CỦA BẠN</Typography>
             <Box
               sx={{
                 display: "flex",
                 justifyContent: "space-between",
                 alignItems: "center",
                 margin: "12px 0",
-                borderBottom: "3px solid #ccc",
+                borderBottom: "2px solid #ccc",
+                paddingBottom: "8px"
               }}
             >
-              <Typography>SẢN PHẨM</Typography>
-              <Typography>TỔNG PHỤ</Typography>
+              <Typography sx={{ fontWeight: "bold" }}>SẢN PHẨM</Typography>
+              <Typography sx={{ fontWeight: "bold" }}>TỔNG PHỤ</Typography>
             </Box>
             {items.map((item) => (
               <Box
@@ -290,7 +292,7 @@ export default function Checkout() {
                 key={item.id}
               >
                 <Typography>{`${item.name} x ${item.quantity}`}</Typography>
-                <Typography>{`${convertWithCommas(
+                <Typography sx={{ color: "#df6a6a" }}>{`${convertWithCommas(
                   +item.price * +item.quantity
                 )} đ`}</Typography>
               </Box>
@@ -304,7 +306,7 @@ export default function Checkout() {
               }}
             >
               <Typography>Tổng phụ</Typography>
-              <Typography>{`${convertWithCommas(totalInit)} đ`}</Typography>
+              <Typography sx={{ color: "#df6a6a" }}>{`${convertWithCommas(totalInit)} đ`}</Typography>
             </Box>
             <Box
               sx={{
@@ -315,7 +317,7 @@ export default function Checkout() {
               }}
             >
               <Typography>Tổng</Typography>
-              <Typography>{`${convertWithCommas(totalInit)} đ`}</Typography>
+              <Typography sx={{ color: "#df6a6a" }} >{`${convertWithCommas(totalInit)} đ`}</Typography>
             </Box>
             <Box>
               <Typography>Chuyển khoản qua ngân hàng</Typography>

@@ -3,11 +3,11 @@ import {
   Box,
   Grid,
 } from "@mui/material";
-import {SliderComponent} from "../../../components/slide";
+import { SliderComponent } from "../../../components/slide";
 export default function IntroPage() {
   return (
     <Grid>
-      <SliderComponent/>
+      <SliderComponent />
       <Box sx={{
         display: "flex",
         justifyContent: "space-around",

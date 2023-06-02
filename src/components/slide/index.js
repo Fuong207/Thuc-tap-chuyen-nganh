@@ -15,6 +15,7 @@ const imageUrl = LIST_PRODUCT_DATA.map((item) => {
     return item.items.map((item) => item.imageUrl
     );
 })
+const [first,second, ...rest] = imageUrl;
 export function SliderComponent() {
     return (
         <Swiper
@@ -28,7 +29,7 @@ export function SliderComponent() {
             scrollbar={{ draggable: true }}
             style={{border: "1px solid #000"}}
         >
-            {imageUrl.map((slideContent) => (
+            {rest.map((slideContent) => (
                 slideContent.map((image) =>
                     <SwiperSlide key={image} >
                         <img src={image} width="100%" height="500px" />
