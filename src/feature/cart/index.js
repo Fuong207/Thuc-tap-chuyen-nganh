@@ -16,7 +16,7 @@ import ItemSettingTable from "./item-setting-table";
 import { useState } from "react";
 import { convertWithCommas } from "../../ultis/number";
 import { getSessionItem, setSessionItem } from "../../ultis/store";
-import { ROUTE } from "../../router/config";
+import { ROUTE, NAVIGATION } from "../../router/config";
 import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
 import SystemUpdateAltIcon from '@mui/icons-material/SystemUpdateAlt';
 
@@ -57,7 +57,22 @@ export default function Cart() {
     setTotal(total);
     setSessionItem("cards", val?.items || []);
   };
-
+  //Xử lý thanh toán
+  const isLogin = NAVIGATION.some(route => route === "/login");
+  const handleCheckout = () => {
+    if (cards.length > 0) {
+      if (isLogin) {
+        alert("Bạn cần đăng nhập để thanh toán!");
+        navigate(ROUTE.LOGIN);
+      }
+      else {
+        navigate(ROUTE.CHECKOUT);
+      }
+    }
+    else {
+      alert("Bạn chưa có sản phẩm nào trong giỏ hàng!");
+    }
+  }
   return (
     <BoxBody>
       <Breadcrumbs separator="/" aria-label="breadcrumb">
@@ -115,7 +130,7 @@ export default function Cart() {
               <Button
                 variant="contained"
                 fullWidth
-                onClick={() => cards.length > 0 ? navigate(ROUTE.CHECKOUT) : alert("Bạn chưa có sản phẩm nào trong giỏ hàng!")}
+                onClick={handleCheckout}
               >
                 Tiến hành thanh toán
               </Button>

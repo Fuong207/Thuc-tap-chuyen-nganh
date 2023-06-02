@@ -12,9 +12,10 @@ import { useNavigate } from "react-router";
 export default function Account() {
     const cards = JSON.parse(localStorage.getItem("saleOrders")) || [];
     const getItems = cards.reduce((prev, curr) => {
-        prev = [...curr.items];
+         prev.push(...curr.items);
         return prev;
     }, []);
+    console.log(getItems);
     const total = getItems.reduce((prev, curr) => prev + curr.total, 0);
     const navigate = useNavigate();
     const handleSignout = () => {

@@ -1,39 +1,33 @@
 // Import Swiper React components
-import { LIST_PRODUCT_DATA } from "../../data/list-product";
-import { Navigation, Pagination, Scrollbar, A11y, Autoplay, EffectFade } from 'swiper';
+import { SLIDE_DATA } from "../../data/slide/"
+import { Navigation, Scrollbar, A11y, Autoplay, EffectFade } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles for moule
-import 'swiper/css';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import 'swiper/css/autoplay';
 import 'swiper/css/effect-fade';
-const imageUrl = LIST_PRODUCT_DATA.map((item) => {
-    return item.items.map((item) => item.imageUrl
-    );
-})
-const [first,second, ...rest] = imageUrl;
 export function SliderComponent() {
     return (
         <Swiper
-            modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay, EffectFade ]}
-            spaceBetween={50}
+            modules={[Navigation, Scrollbar, A11y, Autoplay, EffectFade]}
             slidesPerView={1}
             navigation
             autoplay={true}
             effect="fade"
-            pagination={{ clickable: true }}
             scrollbar={{ draggable: true }}
-            style={{border: "1px solid #000"}}
+            style={{
+                padding: "32px 38px",
+               
+            }}
         >
-            {rest.map((slideContent) => (
-                slideContent.map((image) =>
-                    <SwiperSlide key={image} >
-                        <img src={image} width="100%" height="500px" />
-                    </SwiperSlide>)
+            {SLIDE_DATA.map((img, index) => (
+                <SwiperSlide key={index} >
+                    <img src={img} width="100%" height="400px" alt={index} style={{ borderRadius: "16px",  boxShadow: "0 3px 6px rgba(0,0,0,.16)"}}/>
+                </SwiperSlide>
             ))}
         </Swiper>
     );
