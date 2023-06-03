@@ -31,7 +31,7 @@ export const LIST_PRODUCT_DATA = [
                 imageUrl: "https://bantranh.com/wp-content/uploads/2023/04/0F53CD96-9FB4-4C32-9B28-D02E460AA4E7-scaled.jpeg",
                 price: 15000000,
             },
-        ] 
+        ]
     },
     {
         idCate: 2,
@@ -65,7 +65,7 @@ export const LIST_PRODUCT_DATA = [
                 imageUrl: "https://bantranh.com/wp-content/uploads/2023/04/20230403_221846-scaled.jpg",
                 price: 8000000,
             },
-        ] 
+        ]
     },
     {
         idCate: 3,
@@ -99,7 +99,7 @@ export const LIST_PRODUCT_DATA = [
                 imageUrl: "https://bantranh.com/wp-content/uploads/2023/04/IMG_20230405_153632-01_copy_2268x2835-scaled.jpg",
                 price: 16000000,
             },
-        ] 
+        ]
     },
     {
         idCate: 4,
@@ -133,7 +133,7 @@ export const LIST_PRODUCT_DATA = [
                 imageUrl: "https://bantranh.com/wp-content/uploads/2023/04/338385321_1993428150992796_8251252766156820218_n.jpg",
                 price: 12000000,
             },
-        ] 
+        ]
     },
     {
         idCate: 5,
@@ -167,7 +167,7 @@ export const LIST_PRODUCT_DATA = [
                 imageUrl: "https://bantranh.com/wp-content/uploads/2023/04/E4F0B104-D3CA-4B80-ACBB-2ED1FFFCE1D5-scaled.jpeg",
                 price: 20000000,
             },
-        ] 
+        ]
     },
     {
         idCate: 6,
@@ -201,6 +201,6 @@ export const LIST_PRODUCT_DATA = [
                 imageUrl: "https://bantranh.com/wp-content/uploads/2023/04/Screenshot_20230402-152853_Video-Player.jpg",
                 price: 3500000,
             },
-        ] 
+        ]
     }
 ]

@@ -23,5 +23,4 @@ export const CATEGORY_DATA = [
         idCate: 6,
         name: "TRANH HOA",
     },
-
 ];

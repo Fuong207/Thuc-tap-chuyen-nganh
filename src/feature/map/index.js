@@ -34,7 +34,7 @@ export default function Map() {
                     <Typography
                         variant="subtitle1"
                         color="#777"
-                        fontSize="12px"
+                        fontSize="14px"
                         fontStyle="italic"
                         mb={2}
                     >

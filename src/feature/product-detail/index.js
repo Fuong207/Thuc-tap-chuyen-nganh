@@ -34,7 +34,6 @@ export default function ProductDetail() {
   const navigate = useNavigate();
   const item = listItem.find((item) => item.id === id);
   const sameItem = listItem.filter((items) => items.nameCate === item.nameCate);
-  console.log(sameItem[3].id);
   const cardArr = getSessionItem("cards") || [];
   useEffect(() => {
     setQuantity(1);
@@ -442,7 +441,7 @@ export default function ProductDetail() {
           </Box>
         </Grid>
         <Grid container item xs={12} mt={2}>
-          <Typography sx={{ marginBottom: 1 }} variant="h5">
+          <Typography sx={{ color: "#555", fontWeight: "bolder" }} variant="h5">
             Sản phẩm tương tự
           </Typography>
         </Grid>
